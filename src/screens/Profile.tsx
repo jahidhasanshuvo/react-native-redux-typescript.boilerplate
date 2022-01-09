@@ -11,7 +11,6 @@ const Profile = () => {
 
 const styles = StyleSheet.create({
   body: {
-    backgroundColor: 'steelblue',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',

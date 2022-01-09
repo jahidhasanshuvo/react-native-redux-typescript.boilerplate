@@ -2,9 +2,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import {StatusBar} from 'react-native';
-import Home from './screens/Home';
+import BottomTab from './screens/BottomTab';
 import Login from './screens/Login';
-import Profile from './screens/Profile';
 import {Screens} from './screens/Screens';
 
 const App = () => {
@@ -24,10 +23,12 @@ const App = () => {
           component={Login}
           options={{headerShown: false}}
         />
-        <Stack.Screen name={Screens.Home} component={Home} />
-        <Stack.Screen name={Screens.Profile} component={Profile} />
+        <Stack.Screen
+          name={Screens.BottomTab}
+          component={BottomTab}
+          options={{headerShown: false}}
+        />
       </Stack.Navigator>
-      {/* <Profile /> */}
     </NavigationContainer>
   );
 };

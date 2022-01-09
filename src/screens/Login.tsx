@@ -1,6 +1,7 @@
 import {NativeStackHeaderProps} from '@react-navigation/native-stack';
 import React from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {Screens} from './Screens';
 
 const Login = ({navigation}: NativeStackHeaderProps) => {
   return (
@@ -9,10 +10,10 @@ const Login = ({navigation}: NativeStackHeaderProps) => {
         style={styles.button}
         android_ripple={{color: '#009999'}}
         onPress={() => {
-          navigation.navigate('Profile');
+          navigation.navigate(Screens.BottomTab);
           navigation.reset({
             index: 0,
-            routes: [{name: 'Profile'}],
+            routes: [{name: Screens.BottomTab}],
           });
         }}>
         <Text style={styles.buttonText}>Login</Text>
