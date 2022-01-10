@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {Colors} from '../styles/Colors';
 
 const Profile = () => {
   return (
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 20,
-    color: '#000000',
+    color: Colors.black,
     fontWeight: 'bold',
   },
 });

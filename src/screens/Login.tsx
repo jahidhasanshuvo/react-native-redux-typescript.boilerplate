@@ -6,6 +6,7 @@ import {useSelector} from 'react-redux';
 import {useAppDispatch} from '../redux/store';
 import {userSelector} from '../redux/user/user.selector';
 import {editUsername} from '../redux/user/user.slice';
+import {Colors} from '../styles/Colors';
 
 const Login = ({navigation}: NativeStackHeaderProps) => {
   const dispatch = useAppDispatch();
@@ -25,7 +26,7 @@ const Login = ({navigation}: NativeStackHeaderProps) => {
       <Text style={styles.error}>{error}</Text>
       <Pressable
         style={styles.button}
-        android_ripple={{color: '#009999'}}
+        android_ripple={{color: Colors.background}}
         onPress={() => {
           if (input.length < 5) {
             setError('*Type at least 5 character');
@@ -47,13 +48,13 @@ const Login = ({navigation}: NativeStackHeaderProps) => {
 const styles = StyleSheet.create({
   body: {
     flex: 1,
-    backgroundColor: '#009999',
+    backgroundColor: Colors.background,
     alignItems: 'center',
     justifyContent: 'center',
   },
   button: {
-    backgroundColor: 'white',
-    color: '#00000',
+    backgroundColor: Colors.white,
+    color: Colors.black,
     height: 40,
     width: 100,
     alignItems: 'center',
@@ -63,11 +64,11 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#000000',
+    color: Colors.black,
   },
   textInput: {
     borderColor: 'transparent',
-    borderBottomColor: '#003980',
+    borderBottomColor: Colors.resolutionBlue,
     borderWidth: 1,
     width: '80%',
     fontSize: 20,
@@ -76,7 +77,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   error: {
-    color: 'red',
+    color: Colors.red,
     marginBottom: 10,
   },
 });

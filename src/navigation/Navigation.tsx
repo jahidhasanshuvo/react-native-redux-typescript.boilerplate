@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import BottomTab from './BottomTab';
 import Login from '../screens/Login';
 import {Screens} from './Screens';
+import {Colors} from '../styles/Colors';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,7 +15,7 @@ const Navigation = () => {
         screenOptions={{
           headerTitleAlign: 'center',
           animation: 'slide_from_right',
-          headerStyle: {backgroundColor: '#009999'},
+          headerStyle: {backgroundColor: Colors.background},
           headerShown: false,
         }}
         initialRouteName={Screens.Login}>
