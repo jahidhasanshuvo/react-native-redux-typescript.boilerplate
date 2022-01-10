@@ -7,7 +7,7 @@ const Home = () => {
   const {username} = useSelector(userSelector);
   return (
     <View style={styles.body}>
-      <Text>Heeelo {username}</Text>
+      <Text>Hello {username}</Text>
       <Text style={styles.header}>Home Page</Text>
     </View>
   );

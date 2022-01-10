@@ -1,7 +1,7 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Home from './Home';
-import Profile from './Profile';
+import Home from '../screens/Home';
+import Profile from '../screens/Profile';
 import {Screens} from './Screens';
 import {StyleSheet, Text} from 'react-native';
 
@@ -23,11 +23,7 @@ const BottomTab = () => {
           }
         },
       })}>
-      <Tab.Screen
-        name={Screens.Home}
-        component={Home}
-        options={{headerTitleAlign: 'center'}}
-      />
+      <Tab.Screen name={Screens.Home} component={Home} />
       <Tab.Screen name={Screens.Profile} component={Profile} />
     </Tab.Navigator>
   );

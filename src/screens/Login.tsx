@@ -1,7 +1,7 @@
 import {NativeStackHeaderProps} from '@react-navigation/native-stack';
 import React, {useState} from 'react';
 import {Pressable, StyleSheet, Text, TextInput, View} from 'react-native';
-import {Screens} from './Screens';
+import {Screens} from '../navigation/Screens';
 import {useSelector} from 'react-redux';
 import {useAppDispatch} from '../redux/store';
 import {userSelector} from '../redux/user/user.selector';
