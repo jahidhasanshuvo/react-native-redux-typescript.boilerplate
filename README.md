@@ -1,9 +1,9 @@
 # BOILERPLATE
 
-![REACT-NATIVE](https://place-hold.it/80x33/433/fff?text=REACT&bold)&nbsp;
+![REACT-NATIVE](https://place-hold.it/130x33/433/fff?text=REACT-NATIVE&bold)&nbsp;
 ![REDUX](https://place-hold.it/80x33/506/fff?text=REDUX&bold)&nbsp;
 ![TYPESCRIPT](https://place-hold.it/130x33/104/fff?text=TYPESCRIPT&bold)&nbsp;
-![REACT-NAVIGATION](https://place-hold.it/130x33/411/fff?text=STORYBOOK&bold)&nbsp;
+![REACT-NAVIGATION](https://place-hold.it/150x33/411/fff?text=REACT-NAVIGATION&bold)&nbsp;
 
 ## What's Included
 
@@ -12,7 +12,7 @@
 - `redux middleware` \[**Thunk**\]
 - `redux toolkit`
 - `types for react state, dispatch function (normal and async)`
-- `react-navigation`
+- `react-navigation` \[**`native-stack` & `bottom-tab`**\]
 
 ## INSTALLATION
 
