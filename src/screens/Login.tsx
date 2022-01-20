@@ -2,25 +2,37 @@ import {NativeStackHeaderProps} from '@react-navigation/native-stack';
 import React, {useState} from 'react';
 import {Pressable, StyleSheet, Text, TextInput, View} from 'react-native';
 import {Screens} from '../navigation/Screens';
-import {useSelector} from 'react-redux';
 import {useAppDispatch} from '../redux/store';
-import {userSelector} from '../redux/user/user.selector';
-import {editUsername} from '../redux/user/user.slice';
+import {setUsername as setUsernameInput} from '../redux/user/user.slice';
 import {Colors} from '../styles/Colors';
+import AxiosServices from '../networks/AxiosService';
+import ApiServices from '../networks/ApiServices';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = ({navigation}: NativeStackHeaderProps) => {
   const dispatch = useAppDispatch();
-  const {username} = useSelector(userSelector);
-  const [input, setInput] = useState(username);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   return (
     <View style={styles.body}>
       <TextInput
         style={styles.textInput}
-        value={input}
-        placeholder="Type your name"
+        value={username}
+        placeholder="username"
         onChangeText={text => {
-          setInput(text);
+          setUsername(text);
+        }}
+      />
+      <Text style={styles.error}>{error}</Text>
+      <TextInput
+        secureTextEntry
+        textContentType="password"
+        style={styles.textInput}
+        value={password}
+        placeholder="passwords"
+        onChangeText={text => {
+          setPassword(text);
         }}
       />
       <Text style={styles.error}>{error}</Text>
@@ -28,15 +40,28 @@ const Login = ({navigation}: NativeStackHeaderProps) => {
         style={styles.button}
         android_ripple={{color: Colors.background}}
         onPress={() => {
-          if (input.length < 5) {
+          if (username.length < 0) {
             setError('*Type at least 5 character');
           } else {
-            dispatch(editUsername(input));
-            navigation.navigate(Screens.BottomTab);
-            navigation.reset({
-              index: 0,
-              routes: [{name: Screens.BottomTab}],
-            });
+            AxiosServices.postWithoutToken(ApiServices.LOGIN, {
+              username: username,
+              password: password,
+            })
+              .then(res => {
+                const data = res.data;
+                dispatch(setUsernameInput(username));
+                AsyncStorage.setItem('accessToken', data.access_token);
+                AsyncStorage.setItem('refreshToken', data.refresh_token);
+                navigation.navigate(Screens.BottomTab);
+                navigation.reset({
+                  index: 0,
+                  routes: [{name: Screens.BottomTab}],
+                });
+              })
+              .catch(err => {
+                console.log(err);
+                setError('Wrong Username or password');
+              });
           }
         }}>
         <Text style={styles.buttonText}>Login</Text>
