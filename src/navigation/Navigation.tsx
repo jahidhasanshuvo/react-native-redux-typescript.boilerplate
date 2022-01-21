@@ -5,10 +5,13 @@ import BottomTab from './BottomTab';
 import Login from '../screens/Login';
 import {Screens} from './Screens';
 import {Colors} from '../styles/Colors';
+import {useSelector} from 'react-redux';
+import {userSelector} from '../redux/user/user.selector';
 
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
+  const {username} = useSelector(userSelector);
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -17,10 +20,12 @@ const Navigation = () => {
           animation: 'slide_from_right',
           headerStyle: {backgroundColor: Colors.background},
           headerShown: false,
-        }}
-        initialRouteName={Screens.Login}>
-        <Stack.Screen name={Screens.Login} component={Login} />
-        <Stack.Screen name={Screens.BottomTab} component={BottomTab} />
+        }}>
+        {username.length ? (
+          <Stack.Screen name={Screens.BottomTab} component={BottomTab} />
+        ) : (
+          <Stack.Screen name={Screens.Login} component={Login} />
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );
