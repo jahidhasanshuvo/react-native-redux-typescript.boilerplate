@@ -37,6 +37,7 @@ const BottomTab = () => {
         headerTitleAlign: 'center',
         tabBarLabelStyle: styles.tabBarLabelStyle,
         tabBarActiveTintColor: Colors.background,
+        headerShown: false,
         tabBarIcon: ({focused}) => (
           <BottomTabIcon route={route.name} focused={focused} />
         ),

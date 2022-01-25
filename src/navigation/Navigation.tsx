@@ -7,6 +7,7 @@ import {Screens} from './Screens';
 import {Colors} from '../styles/Colors';
 import {useSelector} from 'react-redux';
 import {userSelector} from '../redux/user/user.selector';
+import DrawerNavigation from './DrawerNavigation';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,8 +23,9 @@ const Navigation = () => {
           headerShown: false,
         }}>
         {username.length ? (
-          <Stack.Screen name={Screens.BottomTab} component={BottomTab} />
+          <Stack.Screen name="DrawerNavigation" component={DrawerNavigation} />
         ) : (
+          // <Stack.Screen name={Screens.BottomTab} component={BottomTab} />
           <Stack.Screen name={Screens.Login} component={Login} />
         )}
       </Stack.Navigator>

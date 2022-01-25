@@ -1,6 +1,8 @@
 export const Screens = {
-  BottomTab: 'BottomTab',
   Login: 'Login',
+  Logout: 'Logout',
+  BottomTab: 'BottomTab',
   Home: 'Home',
   Profile: 'Profile',
+  Contact: 'Contact',
 };

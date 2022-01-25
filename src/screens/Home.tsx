@@ -15,7 +15,7 @@ const Home = () => {
         const data = res.data;
         setPost(data.posts);
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err.response.status));
   };
   useEffect(() => {
     getPost();

@@ -52,11 +52,11 @@ const Login = ({navigation}: NativeStackHeaderProps) => {
                 dispatch(setUsernameInput(username));
                 AsyncStorage.setItem('accessToken', data.access_token);
                 AsyncStorage.setItem('refreshToken', data.refresh_token);
-                navigation.navigate(Screens.BottomTab);
-                navigation.reset({
-                  index: 0,
-                  routes: [{name: Screens.BottomTab}],
-                });
+                // navigation.navigate(Screens.BottomTab);
+                // navigation.reset({
+                //   index: 0,
+                //   // routes: [{name: Screens.BottomTab}],
+                // });
               })
               .catch(err => {
                 console.log(err);
